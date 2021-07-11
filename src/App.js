@@ -1,5 +1,12 @@
+import GlobalStyles from "./styles/globalStyles";
+
 function App() {
-  return <div>Tip Calculator</div>;
+  return (
+    <>
+      <GlobalStyles />
+      <div>Tip Calculator</div>
+    </>
+  );
 }
 
 export default App;
