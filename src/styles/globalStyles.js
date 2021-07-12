@@ -16,15 +16,17 @@ const GlobalStyles = createGlobalStyle`
 
   *,
   *::before,
-  *::after, {
-    margin: 0,
-    padding:0,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Space Mono', monospace;
   }
 
   html {
     height: 100vh;
     width: 100vw;
+    background-color: var(--light-grayish-cyan1);
   }
 
   body {
