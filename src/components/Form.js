@@ -2,11 +2,12 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import FormSection from "./FormSection";
+import { Percentages, Button } from "../styles/Percentages";
 
 const StyledForm = styled.form`
-  background-color: var(--white);
-  padding: 2rem;
-  border-radius: 1.5rem;
+  & > * + * {
+    margin-top: 1.5rem;
+  }
 
   @media (min-width: 900px) {
     max-width: 750px;
@@ -14,23 +15,19 @@ const StyledForm = styled.form`
   } ;
 `;
 
-const Form = () => {
-  const [bill, setBill] = useState(null);
-  const [people, setPeople] = useState(null);
-  const [percentage, setPercentage] = useState(0);
-
-  const onBillChange = (e) => {
-    setBill(e.target.value);
-  };
-
-  const onPeopleChange = (e) => {
-    setPeople(e.target.value);
-  };
-
-  const onPercentageClick = (e) => {
+const Form = ({
+  bill,
+  people,
+  percentage,
+  onBillChange,
+  onPeopleChange,
+  setPercentage,
+  onPercentageChange,
+}) => {
+  const handleClick = (e) => {
+    e.preventDefault();
     setPercentage(e.target.value);
   };
-
   return (
     <StyledForm>
       <FormSection>
@@ -50,6 +47,29 @@ const Form = () => {
         <label htmlFor="percentage" className="label">
           Select Tip %
         </label>
+        <Percentages>
+          <Button value="5" onClick={handleClick}>
+            5%
+          </Button>
+          <Button value="10" onClick={handleClick}>
+            10%
+          </Button>
+          <Button value="15" onClick={handleClick}>
+            15%
+          </Button>
+          <Button value="25" onClick={handleClick}>
+            25%
+          </Button>
+          <Button value="50" onClick={handleClick}>
+            50%
+          </Button>
+          <input
+            type="text"
+            value={percentage}
+            placeholder="Custom"
+            onChange={onPercentageChange}
+          />
+        </Percentages>
       </FormSection>
       <FormSection>
         <label htmlFor="people" className="label">

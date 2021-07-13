@@ -3,7 +3,7 @@ import styled from "styled-components";
 import GlobalStyles from "./styles/globalStyles";
 import logo from "./images/logo.svg";
 
-import Form from "./components/Form";
+import Calculator from "./components/Calculator";
 
 const Container = styled.div`
   width: 100%;
@@ -39,7 +39,7 @@ function App() {
         <Logo>
           <img src={logo} alt="logo" />
         </Logo>
-        <Form />
+        <Calculator />
       </Container>
     </>
   );
