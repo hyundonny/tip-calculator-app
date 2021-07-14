@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import FormSection from "./FormSection";
+import Label from "./Label";
 import { Percentages, Button } from "../styles/Percentages";
 
 const StyledForm = styled.form`
@@ -31,9 +32,7 @@ const Form = ({
   return (
     <StyledForm>
       <FormSection>
-        <label htmlFor="bill" className="label">
-          Bill
-        </label>
+        <Label htmlFor="bill" type="bill" />
         <input
           type="text"
           id="bill"
@@ -44,9 +43,7 @@ const Form = ({
         />
       </FormSection>
       <FormSection>
-        <label htmlFor="percentage" className="label">
-          Select Tip %
-        </label>
+        <Label htmlFor="percentage" type="percentage" />
         <Percentages>
           <Button value="5" onClick={handleClick}>
             5%
@@ -65,6 +62,7 @@ const Form = ({
           </Button>
           <input
             type="text"
+            id="percentage"
             value={percentage}
             placeholder="Custom"
             onChange={onPercentageChange}
@@ -72,9 +70,7 @@ const Form = ({
         </Percentages>
       </FormSection>
       <FormSection>
-        <label htmlFor="people" className="label">
-          Number of People
-        </label>
+        <Label htmlFor="people" type="people" />
         <input
           type="text"
           id="people"
