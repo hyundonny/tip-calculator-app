@@ -8,10 +8,11 @@ const StyledLabel = styled.label`
   color: var(--dark-grayish-cyan1);
 
   &::after {
-    content: "Can't be zero";
-    position: absolute;
     right: 0;
-    color: orange;
+    position: absolute;
+    content: "Can't be zero";
+    color: var(--orangish-red);
+    display: ${(props) => props.value === "0" || "none"};
   }
 `;
 
@@ -21,8 +22,8 @@ const labels = {
   people: "Number of People",
 };
 
-const Label = ({ type }) => {
-  return <StyledLabel>{labels[type]}</StyledLabel>;
+const Label = ({ type, value }) => {
+  return <StyledLabel value={value}>{labels[type]}</StyledLabel>;
 };
 
 export default Label;

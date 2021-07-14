@@ -32,7 +32,7 @@ const Form = ({
   return (
     <StyledForm>
       <FormSection>
-        <Label htmlFor="bill" type="bill" />
+        <Label htmlFor="bill" type="bill" value={bill} />
         <input
           type="text"
           id="bill"
@@ -43,7 +43,7 @@ const Form = ({
         />
       </FormSection>
       <FormSection>
-        <Label htmlFor="percentage" type="percentage" />
+        <Label htmlFor="percentage" type="percentage" value={percentage} />
         <Percentages>
           <Button value="5" onClick={handleClick}>
             5%
@@ -70,7 +70,7 @@ const Form = ({
         </Percentages>
       </FormSection>
       <FormSection>
-        <Label htmlFor="people" type="people" />
+        <Label htmlFor="people" type="people" value={people} />
         <input
           type="text"
           id="people"

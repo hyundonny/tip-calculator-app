@@ -12,6 +12,8 @@ const GlobalStyles = createGlobalStyle`
     --light-grayish-cyan1: hsl(185, 41%, 84%);
     --light-grayish-cyan2: hsl(189, 41%, 97%);
     --white: hsl(0, 0%, 100%);
+
+    --orangish-red: hsl(16, 100%, 50%);;
   }
 
   *,

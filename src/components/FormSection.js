@@ -4,13 +4,6 @@ const StyledFormSection = styled.div`
   display: flex;
   flex-direction: column;
 
-  .label {
-    font-weight: 700;
-    position: relative;
-    margin-bottom: 0.5rem;
-    color: var(--dark-grayish-cyan1);
-  }
-
   .input {
     border: none;
     font-weight: 700;

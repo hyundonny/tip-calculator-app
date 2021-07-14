@@ -18,9 +18,9 @@ const StyledCalculator = styled.div`
 `;
 
 const Calculator = () => {
-  const [bill, setBill] = useState(null);
-  const [people, setPeople] = useState(null);
-  const [percentage, setPercentage] = useState(null);
+  const [bill, setBill] = useState(undefined);
+  const [people, setPeople] = useState(undefined);
+  const [percentage, setPercentage] = useState(undefined);
 
   const onBillChange = (e) => {
     setBill(e.target.value);
