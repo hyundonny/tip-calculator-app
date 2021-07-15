@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { box } from "../styles/utils";
+import { box } from "../utils/utils";
 import dollar from "../images/icon-dollar.svg";
 import person from "../images/icon-person.svg";
 

@@ -4,7 +4,7 @@ const StyledLabel = styled.label`
   display: block;
   font-weight: 700;
   position: relative;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.35rem;
   color: var(--dark-grayish-cyan1);
 
   &::after {

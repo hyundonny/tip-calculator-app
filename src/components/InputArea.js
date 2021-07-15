@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 import Label from "./Label";
 import Input from "./Input";
-import Button from "./Button";
-import FormSection from "./FormSection";
-import { Percentages } from "../styles/Percentages";
+import PercentageButton from "./PercentageButton";
 
 const StyledForm = styled.form`
   & > * + * {
@@ -12,12 +10,27 @@ const StyledForm = styled.form`
   }
 
   @media (min-width: 900px) {
-    max-width: 750px;
+    width: calc(50% - 1rem);
     border-radius: 2rem;
   }
 `;
 
-const Form = ({
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const PercentageSection = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  & > * {
+    width: calc(50% - 0.5rem);
+  }
+`;
+
+const InputArea = ({
   bill,
   people,
   percentage,
@@ -27,7 +40,7 @@ const Form = ({
 }) => {
   const buttons = [5, 10, 15, 25, 50].map((num) => {
     return (
-      <Button
+      <PercentageButton
         key={num}
         value={num}
         percentage={percentage}
@@ -38,13 +51,13 @@ const Form = ({
 
   return (
     <StyledForm>
-      <FormSection>
+      <Section>
         <Label htmlFor="bill" type="bill" value={bill} />
         <Input id="bill" value={bill} placeholder="0" onChange={onBillChange} />
-      </FormSection>
-      <FormSection>
+      </Section>
+      <Section>
         <Label htmlFor="percentage" type="percentage" value={percentage} />
-        <Percentages>
+        <PercentageSection>
           {buttons}
           <Input
             id="percentage"
@@ -52,9 +65,9 @@ const Form = ({
             placeholder="Custom"
             onChange={onPercentageChange}
           />
-        </Percentages>
-      </FormSection>
-      <FormSection>
+        </PercentageSection>
+      </Section>
+      <Section>
         <Label htmlFor="people" type="people" value={people} />
         <Input
           id="people"
@@ -62,9 +75,9 @@ const Form = ({
           placeholder="0"
           onChange={onPeopleChange}
         />
-      </FormSection>
+      </Section>
     </StyledForm>
   );
 };
 
-export default Form;
+export default InputArea;

@@ -1,19 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import Form from "./Form";
-import Results from "./Results";
+import InputArea from "./InputArea";
+import OutputArea from "./OutputArea";
+import { BasicWrapper } from "../utils/utils";
 
-const StyledCalculator = styled.div`
+const StyledCalculator = styled(BasicWrapper)`
   background-color: var(--white);
-  padding: 2rem;
-  border-radius: 1.5rem;
-
-  display: flex;
-  flex-direction: column;
 
   @media (min-width: 900px) {
     flex-direction: row;
+    justify-content: space-between;
   }
 `;
 
@@ -34,9 +31,15 @@ const Calculator = () => {
     setPercentage(parseInt(e.target.value) || "");
   };
 
+  const reset = () => {
+    setBill("");
+    setPeople("");
+    setPercentage("");
+  };
+
   return (
     <StyledCalculator>
-      <Form
+      <InputArea
         bill={bill}
         people={people}
         percentage={percentage}
@@ -44,7 +47,12 @@ const Calculator = () => {
         onPeopleChange={onPeopleChange}
         onPercentageChange={onPercentageChange}
       />
-      <Results bill={bill} people={people} percentage={percentage} />
+      <OutputArea
+        bill={bill}
+        people={people}
+        percentage={percentage}
+        reset={reset}
+      />
     </StyledCalculator>
   );
 };
