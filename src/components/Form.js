@@ -1,9 +1,10 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-import FormSection from "./FormSection";
 import Label from "./Label";
-import { Percentages, Button } from "../styles/Percentages";
+import Input from "./Input";
+import Button from "./Button";
+import FormSection from "./FormSection";
+import { Percentages } from "../styles/Percentages";
 
 const StyledForm = styled.form`
   & > * + * {
@@ -13,7 +14,7 @@ const StyledForm = styled.form`
   @media (min-width: 900px) {
     max-width: 750px;
     border-radius: 2rem;
-  } ;
+  }
 `;
 
 const Form = ({
@@ -22,46 +23,30 @@ const Form = ({
   percentage,
   onBillChange,
   onPeopleChange,
-  setPercentage,
   onPercentageChange,
 }) => {
-  const handleClick = (e) => {
-    e.preventDefault();
-    setPercentage(e.target.value);
-  };
+  const buttons = [5, 10, 15, 25, 50].map((num) => {
+    return (
+      <Button
+        key={num}
+        value={num}
+        percentage={percentage}
+        onPercentageChange={onPercentageChange}
+      />
+    );
+  });
+
   return (
     <StyledForm>
       <FormSection>
         <Label htmlFor="bill" type="bill" value={bill} />
-        <input
-          type="text"
-          id="bill"
-          className="input"
-          value={bill}
-          placeholder="0"
-          onChange={onBillChange}
-        />
+        <Input id="bill" value={bill} placeholder="0" onChange={onBillChange} />
       </FormSection>
       <FormSection>
         <Label htmlFor="percentage" type="percentage" value={percentage} />
         <Percentages>
-          <Button value="5" onClick={handleClick}>
-            5%
-          </Button>
-          <Button value="10" onClick={handleClick}>
-            10%
-          </Button>
-          <Button value="15" onClick={handleClick}>
-            15%
-          </Button>
-          <Button value="25" onClick={handleClick}>
-            25%
-          </Button>
-          <Button value="50" onClick={handleClick}>
-            50%
-          </Button>
-          <input
-            type="text"
+          {buttons}
+          <Input
             id="percentage"
             value={percentage}
             placeholder="Custom"
@@ -71,10 +56,8 @@ const Form = ({
       </FormSection>
       <FormSection>
         <Label htmlFor="people" type="people" value={people} />
-        <input
-          type="text"
+        <Input
           id="people"
-          className="input"
           value={people}
           placeholder="0"
           onChange={onPeopleChange}

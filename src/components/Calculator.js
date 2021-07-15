@@ -18,20 +18,20 @@ const StyledCalculator = styled.div`
 `;
 
 const Calculator = () => {
-  const [bill, setBill] = useState(undefined);
-  const [people, setPeople] = useState(undefined);
-  const [percentage, setPercentage] = useState(undefined);
+  const [bill, setBill] = useState("");
+  const [people, setPeople] = useState("");
+  const [percentage, setPercentage] = useState("");
 
   const onBillChange = (e) => {
-    setBill(e.target.value);
+    setBill(parseInt(e.target.value) || "");
   };
 
   const onPeopleChange = (e) => {
-    setPeople(e.target.value);
+    setPeople(parseInt(e.target.value) || "");
   };
 
   const onPercentageChange = (e) => {
-    setPercentage(e.target.value);
+    setPercentage(parseInt(e.target.value) || "");
   };
 
   return (
@@ -42,7 +42,6 @@ const Calculator = () => {
         percentage={percentage}
         onBillChange={onBillChange}
         onPeopleChange={onPeopleChange}
-        setPercentage={setPercentage}
         onPercentageChange={onPercentageChange}
       />
       <Results bill={bill} people={people} percentage={percentage} />
