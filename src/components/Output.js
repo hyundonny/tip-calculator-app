@@ -9,8 +9,6 @@ const ResultWrapper = styled.div`
   }
 `;
 
-const Label = styled.div``;
-
 const Title = styled.h1`
   color: var(--white);
   font-size: 1rem;
@@ -27,10 +25,10 @@ const Amount = styled.p`
 const Output = ({ title, amount }) => {
   return (
     <ResultWrapper>
-      <Label>
+      <div>
         <Title>{title}</Title>
         <Subtitle>/ person</Subtitle>
-      </Label>
+      </div>
       <Amount>{`$${amount}`}</Amount>
     </ResultWrapper>
   );

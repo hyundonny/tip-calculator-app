@@ -6,13 +6,18 @@ const StyledLabel = styled.label`
   position: relative;
   margin-bottom: 0.35rem;
   color: var(--dark-grayish-cyan1);
+  font-size: 1rem;
 
   &::after {
     right: 0;
     position: absolute;
     content: "Can't be zero";
     color: var(--orangish-red);
-    display: ${(props) => props.value === "0" || "none"};
+    display: ${(props) => props.value !== "0" && "none"};
+  }
+
+  @media (min-width: 900px) {
+    font-size: 0.75rem;
   }
 `;
 

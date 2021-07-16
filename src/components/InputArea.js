@@ -5,13 +5,17 @@ import Input from "./Input";
 import PercentageButton from "./PercentageButton";
 
 const StyledForm = styled.form`
-  & > * + * {
-    margin-top: 1.5rem;
+  & > * {
+    margin-bottom: 1.5rem;
   }
 
   @media (min-width: 900px) {
     width: calc(50% - 1rem);
     border-radius: 2rem;
+
+    & > * {
+      margin-bottom: 2rem;
+    }
   }
 `;
 
@@ -23,10 +27,17 @@ const Section = styled.div`
 const PercentageSection = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: space-between;
+  row-gap: 1rem;
 
   & > * {
-    width: calc(50% - 0.5rem);
+    width: calc(50% - 0.65rem);
+  }
+
+  @media (min-width: 900px) {
+    & > * {
+      width: 30%;
+    }
   }
 `;
 
@@ -38,7 +49,7 @@ const InputArea = ({
   onPeopleChange,
   onPercentageChange,
 }) => {
-  const buttons = [5, 10, 15, 25, 50].map((num) => {
+  const buttons = ["5", "10", "15", "25", "50"].map((num) => {
     return (
       <PercentageButton
         key={num}

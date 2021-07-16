@@ -19,12 +19,18 @@ const StyledInput = styled.input`
   width: 100%;
   text-align: right;
   color: var(--very-dark-cyan);
-  border: 2px solid transparent;
+  border: ${(props) =>
+    props.value === "0"
+      ? "2px solid var(--orangish-red);"
+      : "2px solid transparent"};
   background-color: var(--light-grayish-cyan2);
 
   &:focus {
     outline: none;
-    border: 2px solid var(--strong-cyan);
+    border: ${(props) =>
+      props.value === "0"
+        ? "2px solid var(--orangish-red);"
+        : "2px solid var(--strong-cyan)"};
   }
 
   &::placeholder {

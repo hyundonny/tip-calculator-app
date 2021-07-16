@@ -13,8 +13,8 @@ const LogoWrapper = styled.div`
 
   @media (min-width: 900px) {
     max-width: 750px;
-    padding-top: 7.5rem;
-    padding-bottom: 3.5rem;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
   }
 `;
 

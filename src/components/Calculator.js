@@ -8,9 +8,17 @@ import { BasicWrapper } from "../utils/utils";
 const StyledCalculator = styled(BasicWrapper)`
   background-color: var(--white);
 
+  & > * + * {
+    margin-top: 1.25rem;
+  }
+
   @media (min-width: 900px) {
     flex-direction: row;
     justify-content: space-between;
+
+    & > * + * {
+      margin-top: 0;
+    }
   }
 `;
 
@@ -20,15 +28,18 @@ const Calculator = () => {
   const [percentage, setPercentage] = useState("");
 
   const onBillChange = (e) => {
-    setBill(parseInt(e.target.value) || "");
+    const bill = e.target.value >= 0 ? e.target.value : "";
+    setBill(bill);
   };
 
   const onPeopleChange = (e) => {
-    setPeople(parseInt(e.target.value) || "");
+    const people = e.target.value >= 0 ? e.target.value : "";
+    setPeople(people);
   };
 
   const onPercentageChange = (e) => {
-    setPercentage(parseInt(e.target.value) || "");
+    const percentage = e.target.value >= 0 ? e.target.value : "";
+    setPercentage(percentage);
   };
 
   const reset = () => {
