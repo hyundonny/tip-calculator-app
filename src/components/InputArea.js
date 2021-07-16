@@ -9,7 +9,7 @@ const StyledForm = styled.form`
     margin-bottom: 1.5rem;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 750px) {
     width: calc(50% - 1rem);
     border-radius: 2rem;
 
@@ -34,7 +34,7 @@ const PercentageSection = styled.div`
     width: calc(50% - 0.65rem);
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 750px) {
     & > * {
       width: 30%;
     }

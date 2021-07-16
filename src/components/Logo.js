@@ -3,15 +3,16 @@ import logo from "../images/logo.svg";
 
 const LogoWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  margin: 0 auto;
   padding-top: 2.25rem;
   padding-bottom: 2.25rem;
+  justify-content: center;
 
   img {
     display: block;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 750px) {
     max-width: 750px;
     padding-top: 8rem;
     padding-bottom: 5rem;

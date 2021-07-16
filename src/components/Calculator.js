@@ -6,13 +6,16 @@ import OutputArea from "./OutputArea";
 import { BasicWrapper } from "../utils/utils";
 
 const StyledCalculator = styled(BasicWrapper)`
+  width: 330px;
+  margin: 0 auto;
   background-color: var(--white);
 
   & > * + * {
     margin-top: 1.25rem;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 750px) {
+    width: 725px;
     flex-direction: row;
     justify-content: space-between;
 

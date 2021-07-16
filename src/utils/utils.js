@@ -7,7 +7,7 @@ export const box = css`
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
 
-  @media (min-width: 900px) {
+  @media (min-width: 750px) {
     padding: 0.35rem 1rem;
     font-size: 1rem;
   }
@@ -20,7 +20,7 @@ export const BasicWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 900px) {
+  @media (min-width: 750px) {
     padding: 2.25rem 1.5rem;
   }
 `;

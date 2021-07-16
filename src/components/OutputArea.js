@@ -12,7 +12,7 @@ const OutputWrapper = styled(BasicWrapper)`
     margin-top: 2rem;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 750px) {
     width: calc(50% - 1rem);
   }
 `;

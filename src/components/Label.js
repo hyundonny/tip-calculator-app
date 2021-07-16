@@ -16,7 +16,7 @@ const StyledLabel = styled.label`
     display: ${(props) => props.value !== "0" && "none"};
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 750px) {
     font-size: 0.75rem;
   }
 `;

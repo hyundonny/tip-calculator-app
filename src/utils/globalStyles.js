@@ -37,10 +37,6 @@ const GlobalStyles = createGlobalStyle`
   #root {
     width: 100%;
     margin: 0 auto;
-
-    @media (min-width: 900px) {
-      max-width: 750px;
-    }
   }
 
   ::-webkit-scrollbar {
