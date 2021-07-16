@@ -18,8 +18,14 @@ const Subtitle = styled.h6`
   color: var(--dark-grayish-cyan2);
 `;
 const Amount = styled.p`
-  font-size: 1.75rem;
+  font-weight: 700;
+  font-size: 1.5rem;
   color: var(--strong-cyan);
+
+  @media (min-width: 750px) {
+    line-height: 1;
+    font-size: 2.5rem;
+  }
 `;
 
 const Output = ({ title, amount }) => {

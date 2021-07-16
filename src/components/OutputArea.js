@@ -21,12 +21,12 @@ const OutputArea = ({ bill, people, percentage, reset }) => {
   const tip =
     bill > 0 && people > 0 && percentage > 0
       ? ((bill / people) * (percentage / 100)).toFixed(2)
-      : 0;
+      : "0.00";
 
   const total =
     bill > 0 && people > 0 && percentage > 0
       ? ((bill / people || 0) + Number(tip)).toFixed(2)
-      : 0;
+      : "0.00";
 
   return (
     <OutputWrapper>
