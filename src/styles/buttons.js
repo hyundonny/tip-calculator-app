@@ -1,29 +1,4 @@
-import styled, { css } from "styled-components";
-
-export const box = css`
-  font-weight: 700;
-  text-align: right;
-  font-size: 1.35rem;
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
-
-  @media (min-width: 750px) {
-    padding: 0.35rem 1rem;
-    font-size: 1rem;
-  }
-`;
-
-export const BasicWrapper = styled.div`
-  padding: 2.15rem 1.85rem;
-  border-radius: 1.25rem;
-
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 750px) {
-    padding: 2.25rem 1.5rem;
-  }
-`;
+import styled, { css } from 'styled-components';
 
 export const ButtonClicked = css`
   color: var(--very-dark-cyan);
@@ -47,11 +22,19 @@ export const ButtonDisabled = css`
 `;
 
 export const BasicButton = styled.button`
-  ${box}
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 
   border: none;
   display: block;
   text-align: center;
+
+  @media (min-width: 750px) {
+    padding: 0.35rem 1rem;
+  }
 
   &:hover {
     background-color: var(--light-grayish-cyan1);

@@ -1,5 +1,9 @@
-import styled from "styled-components";
-import { BasicButton, ButtonClicked, ButtonNotClicked } from "../utils/utils";
+import styled from 'styled-components';
+import {
+  BasicButton,
+  ButtonClicked,
+  ButtonNotClicked,
+} from '../styles/buttons';
 
 const StyledButton = styled(BasicButton)`
   ${(props) => (props.clicked ? ButtonClicked : ButtonNotClicked)}

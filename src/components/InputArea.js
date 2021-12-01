@@ -1,44 +1,45 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Label from "./Label";
-import Input from "./Input";
-import PercentageButton from "./PercentageButton";
-
-const StyledForm = styled.form`
-  & > * {
-    margin-bottom: 1.5rem;
-  }
-
-  @media (min-width: 750px) {
-    width: calc(50% - 1rem);
-    border-radius: 2rem;
-
-    & > * {
-      margin-bottom: 2rem;
-    }
-  }
-`;
+import Label from './Label';
+import Input from './Input';
+import PercentageButton from './PercentageButton';
+import { ReactComponent as Dollar } from '../images/icon-dollar.svg';
+import { ReactComponent as Person } from '../images/icon-person.svg';
 
 const Section = styled.div`
   display: flex;
   flex-direction: column;
-`;
 
-const PercentageSection = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  row-gap: 1rem;
-
-  & > * {
-    width: calc(50% - 0.65rem);
+  & + & {
+    margin-top: 1.5rem;
   }
 
-  @media (min-width: 750px) {
-    & > * {
-      width: 30%;
+  @media (min-width: 768px) {
+    & + & {
+      margin-top: 2rem;
     }
   }
+`;
+
+const Percentages = styled.div`
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`;
+
+const IconWrapper = styled.div`
+  top: 0;
+  bottom: 0;
+  left: 1.25rem;
+  position: absolute;
+
+  display: grid;
+  place-items: center;
 `;
 
 const InputArea = ({
@@ -49,7 +50,7 @@ const InputArea = ({
   onPeopleChange,
   onPercentageChange,
 }) => {
-  const buttons = ["5", "10", "15", "25", "50"].map((num) => {
+  const buttons = ['5', '10', '15', '25', '50'].map((num) => {
     return (
       <PercentageButton
         key={num}
@@ -61,33 +62,49 @@ const InputArea = ({
   });
 
   return (
-    <StyledForm>
+    <form>
       <Section>
-        <Label htmlFor="bill" type="bill" value={bill} />
-        <Input id="bill" value={bill} placeholder="0" onChange={onBillChange} />
+        <Label htmlFor='bill' value={bill}>
+          Bill
+        </Label>
+        <Input id='bill' value={bill} placeholder='0' onChange={onBillChange}>
+          <IconWrapper>
+            <Dollar />
+          </IconWrapper>
+        </Input>
       </Section>
+
       <Section>
-        <Label htmlFor="percentage" type="percentage" value={percentage} />
-        <PercentageSection>
+        <Label htmlFor='percentage' value={percentage}>
+          Select Tip %
+        </Label>
+        <Percentages>
           {buttons}
           <Input
-            id="percentage"
+            id='percentage'
             value={percentage}
-            placeholder="Custom"
+            placeholder='Custom'
             onChange={onPercentageChange}
           />
-        </PercentageSection>
+        </Percentages>
       </Section>
+
       <Section>
-        <Label htmlFor="people" type="people" value={people} />
+        <Label htmlFor='people' value={people}>
+          Number of People
+        </Label>
         <Input
-          id="people"
+          id='people'
           value={people}
-          placeholder="0"
+          placeholder='0'
           onChange={onPeopleChange}
-        />
+        >
+          <IconWrapper>
+            <Person />
+          </IconWrapper>
+        </Input>
       </Section>
-    </StyledForm>
+    </form>
   );
 };
 

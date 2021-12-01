@@ -26,11 +26,11 @@ Users should be able to:
 
 Desktop
 
-![](./src/screenshots/desktop.png)
+![Desktop Screenshot](./src/screenshots/desktop.png)
 
 Mobile
 
-<img src="./src/screenshots/mobile.png" height="600" />
+![Mobile Screenshot](./src/screenshots/mobile.png)
 
 ### Links
 
@@ -41,7 +41,7 @@ Mobile
 ### Built with
 
 - CSS custom properties
-- Flexbox
+- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
@@ -54,5 +54,5 @@ Hopefully, I'll get better at noticing elements that could essentially be slight
 
 ## Author
 
-- Website - [Hyun Don Moon](https://velog.io/@hyundonny)
+- Website - [Hyun Don Moon](https://hyundonmoon.io)
 - Frontend Mentor - [@hyundonny](https://www.frontendmentor.io/profile/hyundonny)

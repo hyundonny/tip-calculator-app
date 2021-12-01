@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -24,8 +24,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: var(--light-grayish-cyan1);
   }
 
@@ -35,12 +34,17 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #root {
-    width: 100%;
-    margin: 0 auto;
+    height: 100%;
+    display: grid;
+    place-items: center;
   }
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  .absolute {
+    position: absolute;
   }
 `;
 

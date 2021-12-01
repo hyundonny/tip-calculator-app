@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import { BasicButton, ButtonClicked, ButtonDisabled } from "../utils/utils";
+import styled from 'styled-components';
+import { BasicButton, ButtonClicked, ButtonDisabled } from '../styles/buttons';
 
 const Reset = styled(BasicButton)`
   text-transform: uppercase;
-
   ${(props) => (props.disabled ? ButtonDisabled : ButtonClicked)}
 `;
 

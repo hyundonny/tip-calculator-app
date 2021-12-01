@@ -1,36 +1,31 @@
-import styled from "styled-components";
-import { box } from "../utils/utils";
-import dollar from "../images/icon-dollar.svg";
-import person from "../images/icon-person.svg";
-
-const icons = {
-  bill: dollar,
-  percentage: "",
-  people: person,
-};
+import styled from 'styled-components';
 
 const InputWrapper = styled.div`
   position: relative;
 `;
 
 const StyledInput = styled.input`
-  ${box}
-
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 0.25rem;
+  padding: 0.35rem 1rem;
   width: 100%;
+
   text-align: right;
   color: var(--very-dark-cyan);
   border: ${(props) =>
-    props.value === "0"
-      ? "2px solid var(--orangish-red);"
-      : "2px solid transparent"};
+    props.value === '0'
+      ? '2px solid var(--orangish-red);'
+      : '2px solid transparent'};
   background-color: var(--light-grayish-cyan2);
+  position: relative;
 
   &:focus {
     outline: none;
     border: ${(props) =>
-      props.value === "0"
-        ? "2px solid var(--orangish-red);"
-        : "2px solid var(--strong-cyan)"};
+      props.value === '0'
+        ? '2px solid var(--orangish-red);'
+        : '2px solid var(--strong-cyan)'};
   }
 
   &::placeholder {
@@ -38,35 +33,16 @@ const StyledInput = styled.input`
   }
 `;
 
-const IconWrapper = styled.div`
-  top: 0;
-  bottom: 0;
-  left: 1.25rem;
-  position: absolute;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledIcon = styled.img`
-  &[src=""] {
-    display: none;
-  }
-`;
-
-const Input = ({ id, value, onChange, placeholder }) => {
+const Input = ({ value, onChange, placeholder, children }) => {
   return (
     <InputWrapper>
       <StyledInput
-        type="text"
+        type='text'
         value={value}
         onChange={onChange}
         placeholder={placeholder}
       />
-      <IconWrapper>
-        <StyledIcon src={icons[id]} alt="input icon" />
-      </IconWrapper>
+      {children && children}
     </InputWrapper>
   );
 };

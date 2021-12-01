@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledLabel = styled.label`
   display: block;
@@ -6,29 +6,20 @@ const StyledLabel = styled.label`
   position: relative;
   margin-bottom: 0.35rem;
   color: var(--dark-grayish-cyan1);
-  font-size: 1rem;
+  font-size: 0.9rem;
+  margin-left: 0.25rem;
 
   &::after {
     right: 0;
     position: absolute;
     content: "Can't be zero";
     color: var(--orangish-red);
-    display: ${(props) => props.value !== "0" && "none"};
-  }
-
-  @media (min-width: 750px) {
-    font-size: 0.75rem;
+    display: ${(props) => props.value !== '0' && 'none'};
   }
 `;
 
-const labels = {
-  bill: "Bill",
-  percentage: "Select Tip %",
-  people: "Number of People",
-};
-
-const Label = ({ type, value }) => {
-  return <StyledLabel value={value}>{labels[type]}</StyledLabel>;
+const Label = ({ value, children }) => {
+  return <StyledLabel value={value}>{children}</StyledLabel>;
 };
 
 export default Label;
