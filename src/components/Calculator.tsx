@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import InputArea from './InputArea';
-import OutputArea from './OutputArea';
+import InputArea from 'components/InputArea';
+import OutputArea from 'components/OutputArea';
 
 const StyledCalculator = styled.div`
   padding: 2.15rem 1.85rem;
@@ -23,24 +23,29 @@ const StyledCalculator = styled.div`
   }
 `;
 
-const Calculator = () => {
-  const [bill, setBill] = useState('');
-  const [people, setPeople] = useState('');
-  const [percentage, setPercentage] = useState('');
+function isNumeric(str: string) {
+  return /^\d+$/.test(str);
+}
 
-  const onBillChange = (e) => {
-    const bill = e.target.value >= 0 ? e.target.value : '';
-    setBill(bill);
-  };
+function Calculator(): JSX.Element {
+  const [bill, setBill] = useState<number | ''>('');
+  const [people, setPeople] = useState<number | ''>('');
+  const [percentage, setPercentage] = useState<number | ''>('');
 
-  const onPeopleChange = (e) => {
-    const people = e.target.value >= 0 ? e.target.value : '';
-    setPeople(people);
-  };
+  function handleInput(fn: React.Dispatch<React.SetStateAction<number | ''>>) {
+    return (str: string) => {
+      if (isNumeric(str)) {
+        fn(parseInt(str));
+      } else if (str === '') {
+        fn(str);
+      }
+    };
+  }
 
-  const onPercentageChange = (e) => {
-    const percentage = e.target.value >= 0 ? e.target.value : '';
-    setPercentage(percentage);
+  const INPUT_HANDLERS = {
+    handleBillChange: handleInput(setBill),
+    handlePeopleChange: handleInput(setPeople),
+    handlePercentageChange: handleInput(setPercentage),
   };
 
   const reset = () => {
@@ -55,9 +60,7 @@ const Calculator = () => {
         bill={bill}
         people={people}
         percentage={percentage}
-        onBillChange={onBillChange}
-        onPeopleChange={onPeopleChange}
-        onPercentageChange={onPercentageChange}
+        handlers={INPUT_HANDLERS}
       />
       <OutputArea
         bill={bill}
@@ -67,6 +70,6 @@ const Calculator = () => {
       />
     </StyledCalculator>
   );
-};
+}
 
 export default Calculator;

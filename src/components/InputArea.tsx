@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-
-import Label from './Label';
-import Input from './Input';
+import Label from 'components/Label';
+import Input from 'components/Input';
 import PercentageButton from './PercentageButton';
-import { ReactComponent as Dollar } from '../images/icon-dollar.svg';
-import { ReactComponent as Person } from '../images/icon-person.svg';
+import { ReactComponent as Dollar } from 'images/icon-dollar.svg';
+import { ReactComponent as Person } from 'images/icon-person.svg';
 
 const Section = styled.div`
   display: flex;
@@ -37,26 +36,35 @@ const IconWrapper = styled.div`
   bottom: 0;
   left: 1.25rem;
   position: absolute;
-
   display: grid;
   place-items: center;
 `;
 
-const InputArea = ({
+interface InputAreaProps {
+  bill: number | '';
+  people: number | '';
+  percentage: number | '';
+  handlers: {
+    [key: string]: (str: string) => void;
+  };
+}
+
+export default function InputArea({
   bill,
   people,
   percentage,
-  onBillChange,
-  onPeopleChange,
-  onPercentageChange,
-}) => {
-  const buttons = ['5', '10', '15', '25', '50'].map((num) => {
+  handlers,
+}: InputAreaProps): JSX.Element {
+  const { handleBillChange, handlePeopleChange, handlePercentageChange } =
+    handlers;
+
+  const buttons = [5, 10, 15, 25, 50].map((num) => {
     return (
       <PercentageButton
         key={num}
         value={num}
         percentage={percentage}
-        onPercentageChange={onPercentageChange}
+        handleChange={handlePercentageChange}
       />
     );
   });
@@ -64,10 +72,15 @@ const InputArea = ({
   return (
     <form>
       <Section>
-        <Label htmlFor='bill' value={bill}>
+        <Label htmlFor="bill" value={bill}>
           Bill
         </Label>
-        <Input id='bill' value={bill} placeholder='0' onChange={onBillChange}>
+        <Input
+          id="bill"
+          value={bill}
+          placeholder="0"
+          handleChange={handleBillChange}
+        >
           <IconWrapper>
             <Dollar />
           </IconWrapper>
@@ -75,29 +88,29 @@ const InputArea = ({
       </Section>
 
       <Section>
-        <Label htmlFor='percentage' value={percentage}>
+        <Label htmlFor="percentage" value={percentage}>
           Select Tip %
         </Label>
         <Percentages>
           {buttons}
           <Input
-            id='percentage'
+            id="percentage"
             value={percentage}
-            placeholder='Custom'
-            onChange={onPercentageChange}
+            placeholder="Custom"
+            handleChange={handlePercentageChange}
           />
         </Percentages>
       </Section>
 
       <Section>
-        <Label htmlFor='people' value={people}>
+        <Label htmlFor="people" value={people}>
           Number of People
         </Label>
         <Input
-          id='people'
+          id="people"
           value={people}
-          placeholder='0'
-          onChange={onPeopleChange}
+          placeholder="0"
+          handleChange={handlePeopleChange}
         >
           <IconWrapper>
             <Person />
@@ -106,6 +119,4 @@ const InputArea = ({
       </Section>
     </form>
   );
-};
-
-export default InputArea;
+}

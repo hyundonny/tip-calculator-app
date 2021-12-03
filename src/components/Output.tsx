@@ -30,7 +30,12 @@ const Amount = styled.p`
   }
 `;
 
-const Output = ({ title, amount }) => {
+interface OutputProps {
+  title: string;
+  amount: string;
+}
+
+export default function Output({ title, amount }: OutputProps): JSX.Element {
   return (
     <ResultWrapper>
       <div>
@@ -40,6 +45,4 @@ const Output = ({ title, amount }) => {
       <Amount>{`$${amount}`}</Amount>
     </ResultWrapper>
   );
-};
-
-export default Output;
+}

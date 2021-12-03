@@ -1,7 +1,7 @@
 import Calculator from './components/Calculator';
-import GlobalStyles from './utils/globalStyles';
+import GlobalStyles from './styles/globalStyles';
 
-function App() {
+export default function App(): JSX.Element {
   return (
     <>
       <GlobalStyles />
@@ -9,5 +9,3 @@ function App() {
     </>
   );
 }
-
-export default App;

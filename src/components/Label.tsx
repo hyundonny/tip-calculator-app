@@ -14,12 +14,24 @@ const StyledLabel = styled.label`
     position: absolute;
     content: "Can't be zero";
     color: var(--orangish-red);
-    display: ${(props) => props.value !== '0' && 'none'};
+    display: ${(props: { value: number | '' }) => props.value !== 0 && 'none'};
   }
 `;
 
-const Label = ({ value, children }) => {
-  return <StyledLabel value={value}>{children}</StyledLabel>;
-};
+interface LabelProps {
+  htmlFor: string;
+  value: number | '';
+  children: string;
+}
 
-export default Label;
+export default function Label({
+  htmlFor,
+  value,
+  children,
+}: LabelProps): JSX.Element {
+  return (
+    <StyledLabel htmlFor={htmlFor} value={value}>
+      {children}
+    </StyledLabel>
+  );
+}

@@ -4,7 +4,7 @@ const InputWrapper = styled.div`
   position: relative;
 `;
 
-const StyledInput = styled.input`
+const StyledInput = styled.input<{ value: number | '' }>`
   font-weight: 700;
   font-size: 0.9rem;
   border-radius: 0.25rem;
@@ -14,7 +14,7 @@ const StyledInput = styled.input`
   text-align: right;
   color: var(--very-dark-cyan);
   border: ${(props) =>
-    props.value === '0'
+    props.value === 0
       ? '2px solid var(--orangish-red);'
       : '2px solid transparent'};
   background-color: var(--light-grayish-cyan2);
@@ -23,7 +23,7 @@ const StyledInput = styled.input`
   &:focus {
     outline: none;
     border: ${(props) =>
-      props.value === '0'
+      props.value === 0
         ? '2px solid var(--orangish-red);'
         : '2px solid var(--strong-cyan)'};
   }
@@ -33,18 +33,33 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ value, onChange, placeholder, children }) => {
+type InputProps = {
+  id: string;
+  value: number | '';
+  placeholder: string;
+  handleChange: (str: string) => void;
+  children?: React.ReactNode;
+};
+
+function Input({
+  id,
+  value,
+  handleChange,
+  placeholder,
+  children,
+}: InputProps): JSX.Element {
   return (
     <InputWrapper>
       <StyledInput
-        type='text'
+        id={id}
+        type="text"
         value={value}
-        onChange={onChange}
+        onChange={(e) => handleChange(e.target.value)}
         placeholder={placeholder}
       />
       {children && children}
     </InputWrapper>
   );
-};
+}
 
 export default Input;
